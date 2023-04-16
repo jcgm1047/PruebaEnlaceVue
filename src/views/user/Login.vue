@@ -18,7 +18,7 @@ export default {
                     password: this.password,
                 });
                 console.log(response.data);
-                // aquí puedes guardar la respuesta del servidor en el local storage o en una cookie
+                localStorage.setItem('auth',  JSON.stringify(response.data));
             } catch (error) {
                 console.error(error);
                 this.error = 'Correo electrónico o contraseña incorrectos';

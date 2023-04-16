@@ -29,7 +29,10 @@
             title: this.title,
             content: this.content,
             user_id: 5, // Utiliza el ID del usuario almacenado en la variable user del store de Vuex
-            
+          }, {
+            headers: {
+              Authorization: `Bearer 19|gxyMOBozJHUEcjezG8JotNc3pTASAuuszO6Eujwr`, // Utiliza el token del usuario almacenado en la variable user del store de Vuex
+            }
           });
           console.log(response.data);
           // Aquí puedes mostrar un mensaje de éxito y redirigir al usuario a la página de detalle del post
