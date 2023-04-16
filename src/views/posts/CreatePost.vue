@@ -24,11 +24,12 @@
     },
     methods: {
       async createPost() {
+        console.log(JSON.parse(localStorage.getItem('auth')).user_id)
         try {
           const response = await axios.post('http://127.0.0.1:8000/api/Post', {
             title: this.title,
             content: this.content,
-            user_id: 5, // Utiliza el ID del usuario almacenado en la variable user del store de Vuex
+            user_id: JSON.parse(localStorage.getItem('auth')).user_id, // Utiliza el ID del usuario almacenado en la variable user del store de Vuex
           }, {
             headers: {
               Authorization: `Bearer 11|H2Z7YPGME6Py3BZYv92pWgBdWwdFuvwldF3ojIam`, // Utiliza el token del usuario almacenado en la variable user del store de Vuex
