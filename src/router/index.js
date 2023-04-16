@@ -4,6 +4,7 @@ import Login from '../views/user/Login.vue'
 import Register from '../views/user/Register.vue'
 import ShowPost from '../views/posts/ShowPost.vue'
 import CreatePost from '../views/posts/CreatePost.vue'
+import EditPost from '../views/posts/EditPost.vue'
 
 
 const router = createRouter({
@@ -34,9 +35,14 @@ const router = createRouter({
     {
       path: '/post/create',
       name: 'create-post',
-      component: CreatePost,
+      component: CreatePost
+    },
+    {
+      path: '/post/edit',
+      name: 'edit-post',
+      component: EditPost
+    },
     
-    }
 
     ]
 })

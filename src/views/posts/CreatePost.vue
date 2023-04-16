@@ -32,7 +32,7 @@
             user_id: JSON.parse(localStorage.getItem('auth')).user_id, // Utiliza el ID del usuario almacenado en la variable user del store de Vuex
           }, {
             headers: {
-              Authorization: `Bearer 19|gxyMOBozJHUEcjezG8JotNc3pTASAuuszO6Eujwr`, // Utiliza el token del usuario almacenado en la variable user del store de Vuex
+              Authorization: `Bearer 11|H2Z7YPGME6Py3BZYv92pWgBdWwdFuvwldF3ojIam`, // Utiliza el token del usuario almacenado en la variable user del store de Vuex
             }
           });
           console.log(response.data);
