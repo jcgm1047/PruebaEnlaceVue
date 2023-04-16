@@ -17,10 +17,9 @@ export default {
                     email: this.email,
                     password: this.password,
                 });
-                console.log(response.data);
                 localStorage.setItem('auth',  JSON.stringify(response.data));
+                location.reload();
             } catch (error) {
-                console.error(error);
                 this.error = 'Correo electrónico o contraseña incorrectos';
             }
         },

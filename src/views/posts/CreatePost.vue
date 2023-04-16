@@ -44,6 +44,11 @@ export default {
             }
         },
     },
-};
-</script>
+    mounted() {
+      if(!localStorage.getItem('auth')){
+        this.$router.push('/login');
+      }
+    }
+  };
+  </script>
   
