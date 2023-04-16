@@ -19,7 +19,9 @@ export default {
     }
   },
   mounted() {
-    this.fetchPosts();
+    if(!localStorage.getItem('auth')){
+        this.$router.push('/login');
+      }
   }
 }
 </script>
