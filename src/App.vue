@@ -32,6 +32,11 @@ import HelloWorld from './components/HelloWorld.vue'
             <RouterLink to="/post/create">Create a post</RouterLink>
           </div>
         </div>
+        <div class="card">
+          <div class="card-body">
+            <RouterLink to="/post/edit">Edit a post</RouterLink>
+          </div>
+        </div>
 
 
 
