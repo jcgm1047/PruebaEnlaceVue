@@ -1,47 +1,49 @@
 <template>
     <form @submit.prevent="createPost">
-      <div class="form-group">
-        <label for="title">Título</label>
-        <input type="text" class="form-control" id="title" v-model="title" required>
-      </div>
-      <div class="form-group">
-        <label for="content">Contenido</label>
-        <textarea class="form-control" id="content" v-model="content" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Crear post</button>
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" class="form-control" id="title" v-model="title" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Contenido</label>
+            <textarea class="form-control" id="content" v-model="content" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear post</button>
     </form>
-  </template>
+</template>
   
-  <script>
-  import axios from 'axios';
-  
-  export default {
+<script>
+import axios from 'axios';
+
+export default {
     data() {
-      return {
-        title: '',
-        content: '',
-      };
+        return {
+            title: '',
+            content: '',
+        };
     },
     methods: {
-      async createPost() {
-        console.log(JSON.parse(localStorage.getItem('auth')).user_id)
-        try {
-          const response = await axios.post('http://127.0.0.1:8000/api/Post', {
-            title: this.title,
-            content: this.content,
-            user_id: JSON.parse(localStorage.getItem('auth')).user_id, // Utiliza el ID del usuario almacenado en la variable user del store de Vuex
-          }, {
-            headers: {
-              Authorization: `Bearer 11|H2Z7YPGME6Py3BZYv92pWgBdWwdFuvwldF3ojIam`, // Utiliza el token del usuario almacenado en la variable user del store de Vuex
+        async createPost() {
+            console.log(JSON.parse(localStorage.getItem('auth')))
+            const tokenAuth = JSON.parse(localStorage.getItem('auth')).token;
+            const user_id = JSON.parse(localStorage.getItem('auth')).user_id;
+            try {
+                const response = await axios.post(`http://127.0.0.1:8000/api/Post/${user_id}`, {
+                    title: this.title,
+                    content: this.content,
+                    user_id: user_id, // Utiliza el ID del usuario almacenado en la variable user del store de Vuex
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${tokenAuth}`, // Utiliza el token del usuario almacenado en la variable user del store de Vuex
+                    }
+                });
+                console.log(response.data);
+                // Aquí puedes mostrar un mensaje de éxito y redirigir al usuario a la página de detalle del post
+            } catch (error) {
+                console.error(error);
             }
-          });
-          console.log(response.data);
-          // Aquí puedes mostrar un mensaje de éxito y redirigir al usuario a la página de detalle del post
-        } catch (error) {
-          console.error(error);
-        }
-      },
+        },
     },
-  };
-  </script>
+};
+</script>
   
