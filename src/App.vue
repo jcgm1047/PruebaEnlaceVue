@@ -6,17 +6,33 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <br>
-        <RouterLink to="/post/show">Show my post</RouterLink>
-        <br>
-        <RouterLink to="/register">Register</RouterLink>
-      </nav>
-    
-   
+      
+        <div class="card">
+          <div class="card-body">
+            <RouterLink to="/">Home</RouterLink>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <RouterLink to="/post/show">Show my post</RouterLink>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <RouterLink to="/register">Register</RouterLink>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <RouterLink to="/login">Login</RouterLink>
+          </div>
+
+
+      
+        </div>
+
     </div>
-    
+
   </header>
 
   <RouterView />
