@@ -28,7 +28,7 @@ export default {
             const tokenAuth = JSON.parse(localStorage.getItem('auth')).token;
             const user_id = JSON.parse(localStorage.getItem('auth')).user_id;
             try {
-                const response = await axios.post(`http://127.0.0.1:8000/api/Post/${user_id}`, {
+                const response = await axios.post(`http://127.0.0.1:8000/api/Post`, {
                     title: this.title,
                     content: this.content,
                     user_id: user_id, // Utiliza el ID del usuario almacenado en la variable user del store de Vuex
