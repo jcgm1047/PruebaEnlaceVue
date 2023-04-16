@@ -9,58 +9,61 @@ const logout = () => {
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-
-      <div class="card" v-if="!authSession">
-        <div class="card-body">
-          <RouterLink to="/register">Register</RouterLink>
-        </div>
-      </div>
-      <div class="card" v-if="!authSession">
-        <div class="card-body">
-          <RouterLink to="/login">Login</RouterLink>
-        </div>
-      </div>
-      <div class="card" v-if="authSession">
-        <div class="card-body">
-          {{ `Bienvenido: ${username}` }} </div>
-      </div>
-      <div class="card" v-if="authSession">
-        <div class="card-body">
-          <RouterLink to="/">Home</RouterLink>
-        </div>
-      </div>
-      <div class="card" v-if="authSession">
+  <div class="container">
+    <header>
+      <div class="container text-center">
+        <!-- Registro -->
+        <div class="card" v-if="!authSession">
           <div class="card-body">
-            <RouterLink to="/post/create">Create a post</RouterLink>
+            <RouterLink :class="`btn btn-success`" to="/register">Register</RouterLink>
           </div>
         </div>
+        <!-- Log in -->
+        <div class="card" v-if="!authSession">
+          <div class="card-body">
+            <RouterLink :class="`btn btn-success`" to="/login">Login</RouterLink>
+          </div>
+        </div>
+        <!-- Bienvenida -->
         <div class="card" v-if="authSession">
           <div class="card-body">
-            <RouterLink to="/post/edit">Edit a post</RouterLink>
+            {{ `Bienvenido: ${username}` }} </div>
+        </div>
+        <!-- home -->
+        <div class="card" v-if="authSession">
+          <div class="card-body">
+            <RouterLink :class="`btn btn-success`" to="/">Home</RouterLink>
           </div>
         </div>
-      <div class="card" v-if="authSession">
-        <div class="card-body">
-          <RouterLink to="/post/show">Show Post</RouterLink>
-        </div>
-      </div>
-
-      <div class="card" v-if="authSession">
-        <div class="card-body">
-          <a href="" v-on:click="logout()">Logout</a>
+        <!-- Create a post -->
+        <div class="card" v-if="authSession">
+          <div class="card-body">
+            <RouterLink :class="`btn btn-success`" to="/post/create">Create a post</RouterLink>
+          </div>
         </div>
 
+        <!-- Show post -->
+        <div class="card" v-if="authSession">
+          <div class="card-body">
+            <RouterLink :class="`btn btn-success`" to="/post/show">Show Post</RouterLink>
+          </div>
+        </div>
+        <!-- Logout -->
+        <div class="card" v-if="authSession">
+          <div class="card-body">
+            <a href="" class="btn btn-success" v-on:click="logout()">Logout</a>
+          </div>
+
+
+        </div>
+
+
+
 
       </div>
 
+    </header>
 
-
-
-    </div>
-
-  </header>
-
-  <RouterView />
+    <RouterView />
+  </div>
 </template>

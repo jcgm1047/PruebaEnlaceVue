@@ -38,7 +38,7 @@ export default {
                                 <label for="email">Email:</label>
                                 <input type="email" class="form-control" id="email" v-model="email">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-4">
                                 <label for="password">Contraseña:</label>
                                 <input type="password" class="form-control" id="password" v-model="password">
                             </div>

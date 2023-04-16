@@ -62,10 +62,10 @@ export default {
                 <h5 class="card-title text-center">{{ post.title }}</h5>
                 <p class="card-text">{{ post.content }}</p>
                 <div class="d-flex justify-content-between">
-                  <router-link :to="{ name: 'edit', params: { id: post.id } }">Edit</router-link>
+                  <router-link  :class="`btn btn-info`" :to="{ name: 'edit', params: { id: post.id } }">Edit</router-link>
                 </div>
                 <div class="d-flex justify-content-between">
-                 <button v-on:click="deletePost(post.id)">Delete</button>
+                 <button class="btn btn-danger" v-on:click="deletePost(post.id)">Delete</button>
                 </div>
               </div>
             </div>

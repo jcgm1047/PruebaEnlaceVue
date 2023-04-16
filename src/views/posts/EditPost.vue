@@ -1,22 +1,28 @@
 <template>
     <div>
-        <form>
-            <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" v-model="post.title">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center mb-4">Edit Post</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="title">Titulo:</label>
+                        <input type="text" class="form-control" id="title" v-model="post.title">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="content">Contenido:</label>
+                        <textarea class="form-control" id="content" v-model="post.content"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" @click.prevent="updatePost">Editar</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="content">Content:</label>
-                <textarea class="form-control" id="content" v-model="post.content"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" @click.prevent="updatePost">Update</button>
-        </form>
+        </div>
+
     </div>
 </template>
   
 <script>
 import axios from 'axios';
-const user_id = JSON.parse(localStorage.getItem('auth')).user_id;
+let user_id = localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')).user_id : '';
 
 export default {
     props: ['id'],

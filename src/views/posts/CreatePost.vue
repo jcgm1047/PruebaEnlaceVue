@@ -1,15 +1,20 @@
 <template>
-    <form @submit.prevent="createPost">
+    <div class="card my-4">
+        <div class="card-body">
+            <form @submit.prevent="createPost">
         <div class="form-group">
             <label for="title">Título</label>
             <input type="text" class="form-control" id="title" v-model="title" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-4">
             <label for="content">Contenido</label>
             <textarea class="form-control" id="content" v-model="content" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Crear post</button>
     </form>
+        </div>
+    </div>
+    
 </template>
   
 <script>

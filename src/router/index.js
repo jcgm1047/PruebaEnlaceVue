@@ -42,9 +42,7 @@ const router = createRouter({
       name: 'edit',
       component: EditPost,
       props: true
-    },
-    
-
+    }
     ]
 })
 
